@@ -10,7 +10,7 @@ class Dataset:
         self.dataset_id = dataset_id
         self.client = Socrata(self.url_connect, None)
         try:
-            self.results = self.client.get(self.dataset_id, limit=2)
+            self.results = self.client.get(self.dataset_id, limit=100)
         except:
             self.results = None
     
