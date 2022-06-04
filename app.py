@@ -1,11 +1,15 @@
 from flask import Flask, make_response, jsonify, request
+from decouple import config
+
+# Tools
 import json
+
 # Datas
 from model.data import Dataset
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'UHGx14#&17NoPRQS#12'
+app.config['SECRET_KEY'] = config('SECRET_KEY')
 app.config['JWT_SECRET_KEY'] = app.config['SECRET_KEY']
 
 dataset = Dataset("www.datos.gov.co", "gt2j-8ykr")
