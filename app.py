@@ -18,8 +18,10 @@ def root_data():
         filtro = json_data['filtro']
         valor = json_data['valor']
 
+        print(filtro, valor)
+
         filtro = dataset.normalize_column(filtro)
-        valor = dataset.normalize_value(filtro, valor)
+        # valor = dataset.normalize_value(filtro, valor)
 
         # result es el nuevo df dado un filtro y un valor
         result = dataset.query(filtro, valor)

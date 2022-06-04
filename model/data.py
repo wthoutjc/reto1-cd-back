@@ -21,12 +21,16 @@ class Dataset:
         return self.df.to_dict('records')
 
     def query(self, column, value):
-        if type(value) == list:
-            query = self.df.query(f"{column} > {value[0]} and {column} < {value[1]}")
-            return query.to_dict('records')
+        try:
+            if type(value) == list:
+                query = self.df.query(f"{column} > {value[0]} and {column} < {value[1]}")
+                return query.to_dict('records')
 
-        query = self.df.query(f"{column} == '{value}'")
-        return query.to_dict('records')
+            query = self.df.query(f"{column} == '{value}'")
+            return query.to_dict('records')
+        except Exception as e:
+            print(e)
+            return []
 
     def normalize_column(self, column: str):
         unicode = dict.fromkeys(map(ord, u'\u0301'))
