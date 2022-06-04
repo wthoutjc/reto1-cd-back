@@ -8,10 +8,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'UHGx14#&17NoPRQS#12'
 app.config['JWT_SECRET_KEY'] = app.config['SECRET_KEY']
 
-dataset = Dataset("www.datos.gov.co", "gt2j-8ykr")
 
 @app.route("/", methods=['GET', 'POST'])
 def root_data():
+    dataset = Dataset("www.datos.gov.co", "gt2j-8ykr")
     if request.method == 'POST':
         data_raw = request.data.decode("utf-8")
         json_data = json.loads(data_raw)

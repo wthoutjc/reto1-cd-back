@@ -16,12 +16,6 @@ class Dataset:
             self.df['departamento'] = self.df['departamento'].astype(str).astype(int)
             self.df['ciudad_municipio'] = self.df['ciudad_municipio'].astype(str).astype(int)
             self.df['edad'] = self.df['edad'].astype(str).astype(int)
-            self.df['fecha_reporte_web'] = pd.to_datetime(self.df['fecha_reporte_web'])
-            self.df['fecha_de_notificaci_n'] = pd.to_datetime(self.df['fecha_de_notificaci_n'])
-            self.df['fecha_inicio_sintomas'] = pd.to_datetime(self.df['fecha_inicio_sintomas'])
-            self.df['fecha_diagnostico'] = pd.to_datetime(self.df['fecha_diagnostico'])
-            self.df['fecha_recuperado'] = pd.to_datetime(self.df['fecha_recuperado'])
-            self.df['fecha_muerte'] = pd.to_datetime(self.df['fecha_muerte'])
         except:
             self.results = None
             self.df = None
